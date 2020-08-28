@@ -10,16 +10,14 @@ import PropTypes from "prop-types"
 
 import * as S from './styled'
 
-import GlobalStyles from '../../styles/global';
-import Profile from "../Profile"
+import GlobalStyles from '../../styles/global'
+import Sidebar from '../Sidebar'
 
 const Layout = ({ children }) => {
   return (
     <S.LayoutWrapper>
       <GlobalStyles />
-      <aside>
-        <Profile />
-      </aside>
+      <Sidebar />
       <S.LayoutMain>{children}</S.LayoutMain>
     </S.LayoutWrapper>
   )

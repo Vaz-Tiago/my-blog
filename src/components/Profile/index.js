@@ -3,18 +3,18 @@ import React from 'react'
 // Static query for get data from project
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Avatar from '../Avatar';
+import Avatar from '../Avatar'
+import * as S from './styled'
 
 const Profile = () => {
   const { 
     site: {
-      siteMetadata: {title, position, description, author}
+      siteMetadata: {position, description, title}
     }
   } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata{
-          author
           title
           position
           description
@@ -24,13 +24,17 @@ const Profile = () => {
   `)
 
   return (
-    <div className="Profile-wrapper">
-      <Avatar />
-      <h1>{title}</h1>
-      <h2>{position}</h2>
-      <p>{description}</p>
-      <p>{author}</p>
-  </div>
+    <S.ProfileWrapper>
+      <S.ProfileLink>
+        <Avatar />
+        <S.ProfileAuthor>
+          {title}
+          <S.ProfilePosition>{position}</S.ProfilePosition>
+        </S.ProfileAuthor>
+      </S.ProfileLink>
+
+      <S.ProfileDescription>{description}</S.ProfileDescription>
+  </S.ProfileWrapper>
   )
 }
 
