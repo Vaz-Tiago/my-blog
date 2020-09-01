@@ -12,6 +12,24 @@ Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus ege
 
 ![Monkeys](/assets/img/01.jpg)
 
+```jss
+  <S.PaginationWrapper>
+    {!isFirst &&
+      <Link to={prevPage}>
+        Página Anterior
+      </Link>
+    }
+
+    <p>{currentPage} de {numPages}</p>
+
+    {!isLast &&
+      <Link to={nextPage}>
+        Próxima Página
+      </Link>
+    }
+  </S.PaginationWrapper>
+```
+
 ## Fusce a metus eu
 
 Pellentesque `sed` sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
