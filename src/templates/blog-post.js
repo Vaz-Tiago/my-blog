@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import RecommendedPosts from '../components/RecommendedPosts'
+import Comments from '../components/Comments'
 
 import * as S from '../components/Post/styled'
 
@@ -38,6 +39,9 @@ const BlogPost = ({ data, pageContext }) => {
         next={next}
         previous={previous}
       />
+
+      <Comments url={post.fields.slug} title={post.frontmatter.title} />
+
     </Layout>
   )
 }
@@ -45,6 +49,9 @@ const BlogPost = ({ data, pageContext }) => {
 export const query = graphql`
   query Post($slug: String!) {
     markdownRemark(fields: {slug: {eq: $slug}}) {
+      fields {
+        slug
+      }
       frontmatter {
         title
         description
